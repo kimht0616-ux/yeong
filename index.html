@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHI-VERSE | 건축가 홍길동 포트폴리오</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Noto Sans KR & Playfair Display for Serifs) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            850: '#22201e',
+                            950: '#141210',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            color: transparent;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-stone-950 text-stone-100 font-sans selection:bg-stone-700 selection:text-white overflow-x-hidden">
+
+    <!-- 네비게이션 바 -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-stone-950/80 backdrop-blur-md border-b border-stone-900" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-2xl tracking-widest font-semibold text-white">
+                K.D. <span class="text-xs tracking-normal block font-sans text-stone-400">HONG ARCHITECTS</span>
+            </a>
+            
+            <!-- 데스크톱 메뉴 -->
+            <div class="hidden md:flex space-x-10 text-sm tracking-widest font-medium text-stone-300">
+                <a href="#home" class="hover:text-white transition-colors">HOME</a>
+                <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
+                <a href="#projects" class="hover:text-white transition-colors">PROJECTS</a>
+                <a href="#philosophy" class="hover:text-white transition-colors">PHILOSOPHY</a>
+                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+            </div>
+
+            <!-- 모바일 메뉴 버튼 -->
+            <button class="md:hidden text-stone-300 hover:text-white focus:outline-none" id="mobile-menu-btn" aria-label="메뉴 열기">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </</button>
+        </div>
+
+        <!-- 모바일 드롭다운 메뉴 -->
+        <div class="hidden md:hidden bg-stone-900 border-b border-stone-800 w-full px-6 py-6 space-y-4" id="mobile-menu">
+            <a href="#home" class="block text-stone-300 hover:text-white py-2 text-lg">HOME</a>
+            <a href="#about" class="block text-stone-300 hover:text-white py-2 text-lg">ABOUT</a>
+            <a href="#projects" class="block text-stone-300 hover:text-white py-2 text-lg">PROJECTS</a>
+            <a href="#philosophy" class="block text-stone-300 hover:text-white py-2 text-lg">PHILOSOPHY</a>
+            <a href="#contact" class="block text-stone-300 hover:text-white py-2 text-lg">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- 홈 섹션 (Hero) -->
+    <section id="home" class="min-h-screen relative flex items-center pt-20 overflow-hidden">
+        <!-- 배경 이미지 (건축적 미가 돋보이는 추상적 배경) -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/70 to-transparent z-10"></div>
+            <!-- 대체 고품질 건축 이미지 제공 (실패 시 차분한 진회색 단색처리) -->
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" 
+                 alt="[건축 설계 포트폴리오 메인 배경]" 
+                 class="w-full h-full object-cover opacity-40 object-center"
+                 onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1c1917'">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full z-20 relative grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-stone-400 uppercase tracking-widest text-sm font-medium border-l-2 border-stone-500 pl-3">Space & Experience</span>
+                <h1 class="text-4xl md:text-6xl font-serif leading-tight font-light">
+                    자연과 인간, <br>
+                    그리고 <span class="font-normal italic text-white">시간의 공존</span>을<br>
+                    설계하다.
+                </h1>
+                <p class="text-stone-400 max-w-md leading-relaxed text-sm md:text-base">
+                    단순한 물리적 공간 구축을 넘어, 그 안에 머무는 사람들의 삶과 시간의 흐름을 조율하고 자연과 부드럽게 대화하는 지속 가능한 건축을 지향합니다.
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                    <a href="#projects" class="bg-white text-stone-950 px-8 py-4 text-sm font-semibold tracking-widest hover:bg-stone-200 transition-all text-center">
+                        PORTFOLIO <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact" class="border border-stone-700 hover:border-white px-8 py-4 text-sm font-semibold tracking-widest transition-all text-center">
+                        GET IN TOUCH
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex justify-end relative">
+                <!-- 입체적 레이아웃의 서브 이미지 프레임 -->
+                <div class="relative w-80 h-[480px] bg-stone-900 border border-stone-800 p-3 transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" 
+                         alt="[미니멀 건축 디자인]" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute -bottom-6 -left-6 bg-stone-900 border border-stone-800 p-4 text-xs font-serif tracking-widest">
+                        01 / RESIDENCE M
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 하단 스크롤 인디케이터 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-stone-500 animate-pulse">
+            <span class="text-xs tracking-widest">SCROLL</span>
+            <i class="fa-solid fa-chevron-down text-sm"></i>
+        </div>
+    </section>
+
+    <!-- 소개 섹션 (About) -->
+    <section id="about" class="py-32 border-b border-stone-900 bg-stone-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- 레프트: 이미지 및 이름 -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-stone-800 to-stone-900 rounded blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                    <div class="relative bg-stone-900 p-4 border border-stone-800">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+                             alt="[건축가 홍길동 프로필 사진]" 
+                             class="w-full h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                             onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-serif text-white">홍길동 <span class="text-sm font-sans text-stone-400 block mt-1">Lead Architect / 대표 건축사</span></h3>
+                    <p class="text-stone-400 text-sm mt-3 leading-relaxed">
+                        대한민국 공인 건축사(KIRA)이자 친환경 인증 건축 설계 전문가입니다. 서울대학교 건축학과를 졸업하고 글로벌 건축 그룹에서의 오랜 경험을 거쳐 현재 'K.D. HONG ARCHITECTS'를 이끌며 새로운 공간 문화를 만들어가고 있습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 라이트: 커리어 정보 및 가치관 -->
+            <div class="lg:col-span-7 space-y-12">
+                <div>
+                    <h2 class="text-xs tracking-widest uppercase text-stone-500 mb-2">CURRICULUM VITAE</h2>
+                    <h3 class="text-4xl font-serif font-light mb-8 text-white">걸어온 발자취</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-6 border-b border-stone-900 pb-4">
+                            <span class="font-serif text-stone-500 w-24 shrink-0">2022 - Present</span>
+                            <div>
+                                <h4 class="text-white font-medium">K.D. HONG ARCHITECTS 대표</h4>
+                                <p class="text-stone-400 text-sm mt-1">친환경 주거 디자인 및 하이엔드 상업 시설 설계 특화</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 border-b border-stone-900 pb-4">
+                            <span class="font-serif text-stone-500 w-24 shrink-0">2018 - 2022</span>
+                            <div>
+                                <h4 class="text-white font-medium">A+U Partners 실장</h4>
+                                <p class="text-stone-400 text-sm mt-1">공공 건축 마스터플랜 및 시립 도서관 현상 설계 당선 및 감리 수행</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 border-b border-stone-900 pb-4">
+                            <span class="font-serif text-stone-500 w-24 shrink-0">2013 - 2018</span>
+                            <div>
+                                <h4 class="text-white font-medium">HOK Architects (Tokyo Office) 선임 디자이너</h4>
+                                <p class="text-stone-400 text-sm mt-1">아시아 태평양 지역 친환경 주상복합 빌딩 프로젝트 참여</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xs tracking-widest uppercase text-stone-500 mb-4">AWARDS & ACTIVITY</h2>
+                    <ul class="grid sm:grid-cols-2 gap-4 text-sm text-stone-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-award text-stone-300 mt-1"></i>
+                            <span>2025 대한민국 공간문화대상 대상</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-award text-stone-300 mt-1"></i>
+                            <span>2023 서울시 젊은 건축가상 수상</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-award text-stone-300 mt-1"></i>
+                            <span>2020 한국건축문화대상 우수상 (상업 부문)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-certificate text-stone-300 mt-1"></i>
+                            <span>대한민국 공인 건축사 (KIRA)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 포트폴리오 프로젝트 섹션 (Projects) -->
+    <section id="projects" class="py-32 bg-stone-900/40 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-xs tracking-widest uppercase text-stone-500 mb-2 block">SELECTED WORKS</span>
+                    <h2 class="text-4xl font-serif font-light text-white">건축 프로젝트 포트폴리오</h2>
+                </div>
+                
+                <!-- 필터 버튼군 -->
+                <div class="flex flex-wrap gap-2 text-xs tracking-widest font-medium overflow-x-auto pb-2 scrollbar-hide" id="filter-btn-container">
+                    <button class="px-5 py-2.5 bg-white text-stone-950 font-bold uppercase transition-all duration-300 rounded-none filter-btn active" data-filter="all">ALL</button>
+                    <button class="px-5 py-2.5 bg-stone-800 text-stone-400 hover:text-white transition-all duration-300 rounded-none filter-btn" data-filter="residential">RESIDENTIAL</button>
+                    <button class="px-5 py-2.5 bg-stone-800 text-stone-400 hover:text-white transition-all duration-300 rounded-none filter-btn" data-filter="commercial">COMMERCIAL</button>
+                    <button class="px-5 py-2.5 bg-stone-800 text-stone-400 hover:text-white transition-all duration-300 rounded-none filter-btn" data-filter="public">PUBLIC</button>
+                </div>
+            </div>
+
+            <!-- 프로젝트 그리드 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- 프로젝트 1 (Residential) -->
+                <div class="project-item group cursor-pointer" data-category="residential" onclick="openProjectModal(1)">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-stone-900 border border-stone-800 mb-4">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
+                             alt="[모던 주택 '숲의 틈']" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="border border-white text-white px-6 py-2.5 text-xs tracking-widest uppercase bg-stone-950/80">VIEW PROJECT</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-stone-500 tracking-widest uppercase">Residential / 2024</span>
+                    <h3 class="text-lg text-white font-medium mt-1 group-hover:text-stone-300 transition-colors">빛과 바람이 머무는 곳, '숲의 틈'</h3>
+                </div>
+
+                <!-- 프로젝트 2 (Commercial) -->
+                <div class="project-item group cursor-pointer" data-category="commercial" onclick="openProjectModal(2)">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-stone-900 border border-stone-800 mb-4">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
+                             alt="[상업 빌딩 '그레이디언트 빌딩']" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="border border-white text-white px-6 py-2.5 text-xs tracking-widest uppercase bg-stone-950/80">VIEW PROJECT</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-stone-500 tracking-widest uppercase">Commercial / 2023</span>
+                    <h3 class="text-lg text-white font-medium mt-1 group-hover:text-stone-300 transition-colors">수직과 수평의 기하학, '그레이디언트 오피스'</h3>
+                </div>
+
+                <!-- 프로젝트 3 (Public) -->
+                <div class="project-item group cursor-pointer" data-category="public" onclick="openProjectModal(3)">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-stone-900 border border-stone-800 mb-4">
+                        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" 
+                             alt="[도서관 프로젝트 '서림']" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="border border-white text-white px-6 py-2.5 text-xs tracking-widest uppercase bg-stone-950/80">VIEW PROJECT</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-stone-500 tracking-widest uppercase">Public / 2023</span>
+                    <h3 class="text-lg text-white font-medium mt-1 group-hover:text-stone-300 transition-colors">열린 지식의 광장, '숲속 도서관 서림'</h3>
+                </div>
+
+                <!-- 프로젝트 4 (Residential) -->
+                <div class="project-item group cursor-pointer" data-category="residential" onclick="openProjectModal(4)">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-stone-900 border border-stone-800 mb-4">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" 
+                             alt="[단독 주택 '평평한 지붕 아래']" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="border border-white text-white px-6 py-2.5 text-xs tracking-widest uppercase bg-stone-950/80">VIEW PROJECT</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-stone-500 tracking-widest uppercase">Residential / 2022</span>
+                    <h3 class="text-lg text-white font-medium mt-1 group-hover:text-stone-300 transition-colors">낮게 엎드려 자연을 품다, '평평한 집'</h3>
+                </div>
+
+                <!-- 프로젝트 5 (Commercial) -->
+                <div class="project-item group cursor-pointer" data-category="commercial" onclick="openProjectModal(5)">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-stone-900 border border-stone-800 mb-4">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" 
+                             alt="[복합 문화 예술 공간 '어반 캔버스']" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.src='https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="border border-white text-white px-6 py-2.5 text-xs tracking-widest uppercase bg-stone-950/80">VIEW PROJECT</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-stone-500 tracking-widest uppercase">Commercial / 2022</span>
+                    <h3 class="text-lg text-white font-medium mt-1 group-hover:text-stone-300 transition-colors">도시 속 예술 쉼터, '어반 캔버스 복합문화공간'</h3>
+                </div>
+
+                <!-- 프로젝트 6 (Public) -->
+                <div class="project-item group cursor-pointer" data-category="public" onclick="openProjectModal(6)">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-stone-900 border border-stone-800 mb-4">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" 
+                             alt="[커뮤니티 센터 '한마당']" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.src='https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="border border-white text-white px-6 py-2.5 text-xs tracking-widest uppercase bg-stone-950/80">VIEW PROJECT</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-stone-500 tracking-widest uppercase">Public / 2021</span>
+                    <h3 class="text-lg text-white font-medium mt-1 group-hover:text-stone-300 transition-colors">공동체를 이어주는 연결고리, '한마당 웰니스 센터'</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 건축 철학 섹션 (Philosophy) -->
+    <section id="philosophy" class="py-32 relative bg-stone-950 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-stone-900/20 rounded-full blur-3xl -z-10"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-12">
+            <span class="text-xs tracking-widest uppercase text-stone-500">PHILOSOPHY OF ARCHITECTURE</span>
+            <h2 class="text-4xl md:text-5xl font-serif font-light text-white leading-snug">
+                “건축은 비어있는 공간에 형태를 지어 올리는 것이 아니라, 형태를 통해 삶의 방식을 조각해내는 일이다.”
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-left pt-8">
+                <div class="p-6 bg-stone-900/50 border border-stone-850">
+                    <div class="text-white text-xl mb-4 font-serif">01. 자연과의 합일</div>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        자연 환경을 해치지 않고 경관을 흐르듯이 수용하는 유기적인 친환경 설계를 실현합니다.
+                    </p>
+                </div>
+                <div class="p-6 bg-stone-900/50 border border-stone-850">
+                    <div class="text-white text-xl mb-4 font-serif">02. 본질적 미니멀리즘</div>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        불필요한 장식을 걷어내고, 재료 고유의 성질과 질감, 빛의 변화가 지닌 공간의 순수성을 극대화합니다.
+                    </p>
+                </div>
+                <div class="p-6 bg-stone-900/50 border border-stone-850">
+                    <div class="text-white text-xl mb-4 font-serif">03. 시간의 축적</div>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        지어진 순간 완결되는 것이 아닌, 세월이 흘러 아름다운 흔적이 쌓일 수 있는 견고한 내구성의 재료와 구조를 고민합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 문의 섹션 (Contact) -->
+    <section id="contact" class="py-32 bg-stone-900/30 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16">
+            
+            <!-- 레프트: 연락 정보 -->
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <span class="text-xs tracking-widest uppercase text-stone-500 mb-2 block">COLLABORATION</span>
+                    <h2 class="text-4xl font-serif font-light text-white">협업 및 프로젝트 문의</h2>
+                    <p class="text-stone-400 text-sm mt-4 leading-relaxed">
+                        새로운 상상, 새로운 프로젝트의 시작을 환영합니다. 주거, 상업공간, 공공건축 등 설계 및 감리 문의를 편하게 남겨주시면 정성껏 답변드리겠습니다.
+                    </p>
+                </div>
+
+                <div class="space-y-6 pt-4 text-stone-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs tracking-widest text-stone-500 uppercase">OFFICE</h4>
+                            <p class="text-sm mt-1">서울특별시 강남구 테헤란로 123, 8층 (K.D. HONG ARCHITECTS)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs tracking-widest text-stone-500 uppercase">EMAIL</h4>
+                            <p class="text-sm mt-1">contact@kdhong-archi.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs tracking-widest text-stone-500 uppercase">PHONE</h4>
+                            <p class="text-sm mt-1">02-1234-5678</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNS 링크 -->
+                <div class="flex gap-4 pt-4">
+                    <a href="#" class="w-10 h-10 border border-stone-800 hover:border-white text-stone-400 hover:text-white flex items-center justify-center transition-all">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 border border-stone-800 hover:border-white text-stone-400 hover:text-white flex items-center justify-center transition-all">
+                        <i class="fa-brands fa-pinterest text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 border border-stone-800 hover:border-white text-stone-400 hover:text-white flex items-center justify-center transition-all">
+                        <i class="fa-brands fa-youtube text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 라이트: 이메일 문의 양식 -->
+            <div class="lg:col-span-7">
+                <div class="bg-stone-900/60 p-8 md:p-10 border border-stone-850">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs tracking-widest uppercase text-stone-400 mb-2">NAME / 성함 *</label>
+                                <input type="text" required class="w-full bg-stone-950 border border-stone-800 focus:border-stone-500 px-4 py-3 text-sm text-white rounded-none outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs tracking-widest uppercase text-stone-400 mb-2">EMAIL / 이메일 *</label>
+                                <input type="email" required class="w-full bg-stone-950 border border-stone-800 focus:border-stone-500 px-4 py-3 text-sm text-white rounded-none outline-none transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs tracking-widest uppercase text-stone-400 mb-2">CATEGORY / 프로젝트 성격 *</label>
+                            <select class="w-full bg-stone-950 border border-stone-800 focus:border-stone-500 px-4 py-3 text-sm text-white rounded-none outline-none transition-colors">
+                                <option value="residential">Residential (주거 공간)</option>
+                                <option value="commercial">Commercial (상업 공간)</option>
+                                <option value="public">Public (공공 건축)</option>
+                                <option value="interior">Interior (인테리어 및 기타)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs tracking-widest uppercase text-stone-400 mb-2">MESSAGE / 문의 내용 *</label>
+                            <textarea rows="5" required class="w-full bg-stone-950 border border-stone-800 focus:border-stone-500 p-4 text-sm text-white rounded-none outline-none transition-colors resize-none" placeholder="원하시는 대략적인 프로젝트 개요, 예산, 예상 일정을 포함해 주시면 상세한 답변이 가능합니다."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-white hover:bg-stone-200 text-stone-950 text-xs tracking-widest font-bold py-4 transition-all duration-300">
+                            SEND MESSAGE <i class="fa-regular fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-stone-950 py-12 border-t border-stone-900/50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-serif text-lg tracking-widest font-semibold text-white block">K.D. HONG</span>
+                <span class="text-[10px] text-stone-500 uppercase tracking-widest block mt-0.5">© 2026 K.D. HONG ARCHITECTS. ALL RIGHTS RESERVED.</span>
+            </div>
+            
+            <div class="flex space-x-8 text-xs text-stone-500 tracking-widest">
+                <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
+                <a href="#projects" class="hover:text-white transition-colors">PORTFOLIO</a>
+                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 프로젝트 상세 모달(Modal) 뷰어 -->
+    <div id="project-modal" class="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-10 hidden opacity-0 transition-opacity duration-300">
+        <div class="relative bg-stone-900 border border-stone-800 max-w-5xl w-full max-h-[90vh] overflow-y-auto scrollbar-hide text-stone-300">
+            <!-- 닫기 버튼 -->
+            <button class="absolute top-6 right-6 text-stone-400 hover:text-white z-10 transition-colors bg-stone-950/80 p-2.5" onclick="closeProjectModal()">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+
+            <!-- 동적 모달 내용 영역 -->
+            <div id="modal-content" class="p-6 md:p-12 space-y-8">
+                <!-- 여기에 JS를 통해 프로젝트 세부 내용이 빌드되어 들어옵니다 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 성공/메시지 피드백 전용 토스트 알림 컴포넌트 -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-stone-900 border border-stone-800 text-white px-6 py-4 flex items-center gap-3 shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-green-500 text-lg"></i>
+        <div>
+            <h5 class="text-sm font-semibold">문의 접수 완료</h5>
+            <p class="text-xs text-stone-400 mt-0.5">성공적으로 발송되었습니다. 조속히 피드백 드리겠습니다.</p>
+        </div>
+    </div>
+
+
+    <script>
+        // 네비게이션 스크롤 효과
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-4', 'bg-stone-950/95');
+                navbar.classList.remove('py-0');
+            } else {
+                navbar.classList.remove('py-4', 'bg-stone-950/95');
+            }
+        });
+
+        // 모바일 메뉴 토글
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 모바일 메뉴 아이템 클릭시 닫기
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 포트폴리오 카테고리 필터링
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 활성화 클래스 전환
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-white', 'text-stone-950', 'font-bold', 'active');
+                    b.classList.add('bg-stone-800', 'text-stone-400');
+                });
+                btn.classList.add('bg-white', 'text-stone-950', 'font-bold', 'active');
+                btn.classList.remove('bg-stone-800', 'text-stone-400');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                // 아이템 애니메이션 후 필터링
+                projectItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 250);
+                    }
+                });
+            });
+        });
+
+        // 프로젝트 세부 데이터 객체
+        const projectsData = {
+            1: {
+                title: "빛과 바람이 머무는 곳, '숲의 틈'",
+                category: "Residential / 주거 공간",
+                year: "2024",
+                location: "경기도 양평군",
+                area: "210 ㎡",
+                materials: "노출콘크리트, 탄화목, 저철분 유리기판",
+                desc: "울창한 산림으로 둘러싸인 부지에 자리 잡은 주거 공간입니다. 주변의 대지가 가지고 있는 자연적 등고선을 온전히 살리고 건물을 두 개의 매스로 분할하여 그 틈새로 빛과 바람, 그리고 외부 산책로가 드나들도록 입체적으로 설계하였습니다.",
+                image1: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+                image2: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+            },
+            2: {
+                title: "수직과 수평의 기하학, '그레이디언트 오피스'",
+                category: "Commercial / 상업 공간",
+                year: "2023",
+                location: "서울특별시 마포구",
+                area: "1,540 ㎡",
+                materials: "화강석 패널, 알루미늄 루버, 로이 삼중 유리",
+                desc: "다양한 스타트업들이 유연하게 일할 수 있는 지식 기반 상업 지구 빌딩입니다. 수평적인 조망이 가능한 전면 통유리 구조에 알루미늄 루버를 일정한 그라데이션 주기로 배치하여 햇빛 차단 성능과 매력적인 시각적 외관을 동시에 해결하였습니다.",
+                image1: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+                image2: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+            },
+            3: {
+                title: "열린 지식의 광장, '숲속 도서관 서림'",
+                category: "Public / 공공 건축",
+                year: "2023",
+                location: "강원도 원주시",
+                area: "3,890 ㎡",
+                materials: "집성재(Glulam), 점토 벽돌, 패시브 단열 공법",
+                desc: "산지 공원에 위치한 지역 사회의 친환경 소규모 도서관 프로젝트입니다. 친환경 대경 목재 구조를 노출하여 마치 거대한 숲속 둥지에 앉아 책을 읽는 듯한 평온한 분위기를 선사하고, 자연 광원이 천장 중심에서부터 공간 전체로 고르게 분산되도록 중앙 아트리움을 설계하였습니다.",
+                image1: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
+                image2: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+            },
+            4: {
+                title: "낮게 엎드려 자연을 품다, '평평한 집'",
+                category: "Residential / 주거 공간",
+                year: "2022",
+                location: "제주도 서귀포시",
+                area: "185 ㎡",
+                materials: "제주 화산석, 현무암 타일, 수성 친환경 도료",
+                desc: "제주의 바림 소리와 탁 트인 수평선을 한눈에 담아내도록 설계된 단층 단독 주택입니다. 전통 돌담의 디테일을 건물 외벽에 고스란히 이식했으며, 수평적인 낮은 실루엣 설계를 통해 바람이 거센 제주 기후에 안전하고 지극히 고즈넉한 휴식을 지탱합니다.",
+                image1: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+                image2: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+            },
+            5: {
+                title: "도시 속 예술 쉼터, '어반 캔버스 복합문화공간'",
+                category: "Commercial / 상업 공간",
+                year: "2022",
+                location: "부산광역시 해운대구",
+                area: "820 ㎡",
+                materials: "테라코타 루버, 노출 콘크리트, 컬러 스틸 시트",
+                desc: "기존의 버려진 오래된 제분 공장을 리노베이션하여 미술 갤러리 및 로스터리 카페가 결합된 트렌디한 아트 플랫폼으로 탈바꿈시켰습니다. 오래된 벽면의 거친 질감을 그대로 남겨 과거의 시간 레이어를 보호하는 동시에 모던한 철제 오브제로 현대적 세련미를 더했습니다.",
+                image1: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+                image2: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80",
+            },
+            6: {
+                title: "공동체를 이어주는 연결고리, '한마당 웰니스 센터'",
+                category: "Public / 공공 건축",
+                year: "2021",
+                location: "충청남도 천안시",
+                area: "2,210 ㎡",
+                materials: "재생 유압 점토벽돌, 구조용 집성 목재, 태양광 집광판",
+                desc: "모든 연령층의 시민들이 모여 여가와 건강 관리를 상생할 수 있도록 설계된 공공 복합 체육 센터입니다. 한옥 마당의 개념을 내부 중정 형식으로 구현하여 개별 강당과 산책 동선이 중정을 통해 서로 유기적으로 엮이게 설계했습니다.",
+                image1: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+                image2: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
+            }
+        };
+
+        // 모달 열기 함수
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openProjectModal(id) {
+            const project = projectsData[id];
+            if (!project) return;
+
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <span class="text-xs text-stone-500 tracking-widest uppercase font-semibold">${project.category}</span>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white font-light">${project.title}</h2>
+                    
+                    <div class="grid md:grid-cols-4 gap-6 py-6 border-y border-stone-800 text-sm">
+                        <div>
+                            <span class="block text-xs text-stone-500 tracking-widest uppercase">LOCATION</span>
+                            <span class="text-stone-200 mt-1 block">${project.location}</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-stone-500 tracking-widest uppercase">YEAR</span>
+                            <span class="text-stone-200 mt-1 block">${project.year}</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-stone-500 tracking-widest uppercase">TOTAL AREA</span>
+                            <span class="text-stone-200 mt-1 block">${project.area}</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-stone-500 tracking-widest uppercase">MATERIALS</span>
+                            <span class="text-stone-200 mt-1 block">${project.materials}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-8 space-y-6">
+                        <img src="${project.image1}" alt="대표 컷" class="w-full object-cover border border-stone-800" onerror="this.style.display='none'">
+                        <img src="${project.image2}" alt="디테일 컷" class="w-full object-cover border border-stone-800" onerror="this.style.display='none'">
+                    </div>
+                    <div class="md:col-span-4 space-y-6 sticky top-6">
+                        <h4 class="text-xs tracking-widest text-stone-400 uppercase font-bold border-l-2 border-stone-500 pl-2">ARCHITECTURAL DESIGN BRIEF</h4>
+                        <p class="text-stone-300 text-sm leading-relaxed whitespace-pre-line">${project.desc}</p>
+                        
+                        <div class="pt-4">
+                            <button onclick="closeProjectModal()" class="w-full border border-stone-700 hover:border-white text-xs tracking-widest text-white py-3 transition-colors">
+                                CLOSE VIEWER
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // 바디 스크롤 금지
+        }
+
+        // 모달 닫기 함수
+        function closeProjectModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = 'auto'; // 바디 스크롤 활성화
+        }
+
+        // 모달 백드롭 클릭시 닫기
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeProjectModal();
+            }
+        });
+
+        // 연락 폼 전송 이벤트 핸들링 (목업 전송 시뮬레이션)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // 전송 애니메이션 느낌을 위한 버튼 로딩 처리
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalBtnHtml = btn.innerHTML;
+            
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin mr-2"></i> SENDING...`;
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // 발송 완료 처리 및 피드백 알림 띄우기
+                btn.innerHTML = originalBtnHtml;
+                btn.disabled = false;
+                form.reset();
+
+                // 성공 토스트 띄우기
+                const toast = document.getElementById('toast');
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+
+                // 4초 후 숨기기
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 4000);
+
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
